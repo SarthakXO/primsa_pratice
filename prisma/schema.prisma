@@ -12,3 +12,21 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+//data model
+
+model User {
+  id        Int     @id @default(autoincrement()) // field is ID, it is integer, it is the primary key and auto increments
+  email     String  @unique
+  firstName String?
+  lastName  String? // ? means optional
+  password  String
+}
+
+model Todo {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  isComplete  Boolean
+  createdAt   DateTime
+}
